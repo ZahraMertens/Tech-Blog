@@ -18,7 +18,7 @@ Comment.init(
         key: 'id',
       },
     },
-    comment_text: {
+    comment_content: {
       type: DataTypes.STRING,
       allowNull: false,
     },
