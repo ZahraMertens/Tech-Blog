@@ -11,10 +11,6 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // name: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
     post_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -24,6 +20,7 @@ Comment.init(
     },
     comment_text: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     date_created: {
       type: DataTypes.DATE,
