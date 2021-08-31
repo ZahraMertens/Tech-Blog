@@ -33,5 +33,33 @@ router.get('/', async (req,res) => {
     }
 });
 
-// router.get
+router.get('/post/:id', async (req, res) => {
+
+    try{
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        })
+
+        if (!postData) {
+            res.status(200).json({message: 'Create new post'});
+            return
+        }
+
+        const post = postData.get({plain: true});
+
+        res.render('post', {
+            ...post,
+            logged_in: req.session.logged_in
+        });
+
+    } catch (error){
+        console.log(error)
+        res.status(500).json({name: error.name, message: error.message})
+    }
+})
 module.exports = router;
