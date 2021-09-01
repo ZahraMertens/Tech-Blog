@@ -28,7 +28,7 @@
             <li class="nav-item">
                {{#if logged_in}}
                 <a href="/">
-                 <button class="button" id="logout">logout</button>
+                  <button type="button" id="btn-logout" class="btn btn-danger">Logout</button>
                 </a>
                {{else}}
                 <a href="/login">
@@ -57,7 +57,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+    <script src="/js/logout.js"></script>
   {{/if}}
 </body>
 
