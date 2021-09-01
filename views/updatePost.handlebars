@@ -1,9 +1,15 @@
-<div class="card">
+<form class="update-form card">
   <h7 class="card-header">Created by {{user.username}} on {{format_date date_created}}</h7>
   <div class="card-body">
-    <textarea class="form-control" id="content-post" rows="5">{{title}}</textarea>
-    <textarea class="form-control" id="content-post" rows="5">{{post_content}}</textarea>
-    <button type="submit" class="btn btn-primary">Update Post</button>
-    <button type="submit" class="btn btn-primary">Delete</button>
+    <label for="exampleFormControlTextarea1" class="form-label">Title</label>
+    <textarea class="form-control" id="update-title" rows="1">{{title}}</textarea>
+    <br>
+    <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+    <textarea class="form-control" id="update-content" rows="5">{{post_content}}</textarea>
+    <br>
+    <button type="button" id="update-btn" class="update-btn btn btn-primary" data-id="{{id}}">Update Post</button>
+    <button type="button" id="delete-btn" class="delete-btn btn btn-primary" data-id="{{id}}">Delete</button>
   </div>
-</div>
+</form>
+
+<script src="/js/update.js"></script>
