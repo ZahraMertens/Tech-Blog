@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const userData = await User.create(req.body);
 
@@ -45,7 +45,6 @@ router.post('/login', async (req, res) => {
 
             res.status(200).json({user: userData, message: 'Login Success!' })
         })
-
 
     } catch (error) {
         res.status(404).json({message: "specific error to not show the user where the error is"})

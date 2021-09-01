@@ -1,12 +1,12 @@
 const signupHandler = async (event) => {
     event.preventDefault();
 
-    const username = document.querySelector('#username-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
+    const username = document.querySelector('#signup-username').value.trim();
+    const email = document.querySelector('#signup-email').value.trim();
+    const password = document.querySelector('#signup-password').value.trim();
   
     if (username && email && password) {
-      const res = await fetch('/api/users', {
+      const res = await fetch('/api/users/signup', {
         method: 'POST',
         body: JSON.stringify({ username, email, password }),
         headers: { 'Content-Type': 'application/json' },
