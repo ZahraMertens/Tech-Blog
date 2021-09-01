@@ -47,6 +47,28 @@ router.get('/:id', withAuth, async (req, res) => {
     res.status(500).json({name: error.name, message: error.message})
 }
 });
+
+router.put('/:id', withAuth, async (req, res) => {
+   
+  try{
+
+    const postData = await Post.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    })
+
+    if (!postData) {
+      res.status(200).json({message: 'Create new post'});
+      return
+    }
+
+    res.status(200).json(postData)
+
+  } catch (error){
+
+  }
+})
   
 router.delete('/:id', withAuth, async (req, res) => {
     try {

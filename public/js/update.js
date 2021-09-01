@@ -4,27 +4,26 @@ const deleteBtn = document.getElementById('delete-btn');
 const updatePostHandler = async (event) => {
     event.preventDefault();
 
-    console.log("success")
+    if(event.target.hasAttribute('data-id')){
 
-    // const title = document.querySelector("#update-title").value.trim();
-    // const post_content = document.querySelector("#update-content").value.trim();
-    // const post_id = console.log(window)
-    
-    // if (email && password){
-    //     const res = await fetch("/api/posts/:id", {
-    //         method: "DELETE",
-    //         body: JSON.stringify({email, password}),
-    //         headers: { 'Content-Type': 'application/json' },
-    //     });
+        const post_id = event.target.getAttribute('data-id');
+        const title = document.querySelector("#update-title").value.trim();
+        const post_content = document.querySelector("#update-content").value.trim();
+        
+        if (title && post_content){
+            const res = await fetch(`/api/posts/${post_id}`, {
+                method: "PUT",
+                body: JSON.stringify({title, post_content}),
+                headers: { 'Content-Type': 'application/json' },
+            });
 
-    //     console.log("success")
-
-    //     if(res.ok){
-    //         document.location.replace("/")
-    //     } else {
-    //         alert(res.error)
-    //     }
-    // }
+            if(res.ok){
+                document.location.replace(`/dashboard`)
+            } else {
+                alert(res.error)
+            }
+        }
+    }
 }
 
 const deletePostHandler = async (event) => {
@@ -55,4 +54,4 @@ const deletePostHandler = async (event) => {
 deleteBtn.addEventListener("click", deletePostHandler);
 updateBtn.addEventListener("click", updatePostHandler);
 
-console.log("connected")
+// console.log("connected")
