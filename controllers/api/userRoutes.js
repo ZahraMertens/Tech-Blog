@@ -25,6 +25,8 @@ router.post('/login', async (req, res) => {
             }
         });
 
+        console.log("post routes works")
+
         if (!userData){
             res.status(400).json({message: 'Incorrect email or password'});
             return;

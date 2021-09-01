@@ -1,25 +1,24 @@
-const emailInput = document.querySelector(".login-email").value.trim();
-const passwordInput = document.querySelector(".login-password").value.trim();
-const loginBtn = document.querySelector(".login-btn")
-
 const loginHandler = async (event) => {
     event.preventDefault();
 
-    if (emailInput && passwordInput){
+    const email = document.querySelector("#login-email").value.trim();
+    const password = document.querySelector("#login-password").value.trim();
+    
+    if (email && password){
         const res = await fetch("/api/users/login", {
             method: "POST",
-            body: JSON.stringify({emailInput, passwordInput}),
+            body: JSON.stringify({email, password}),
             headers: { 'Content-Type': 'application/json' },
         });
 
-        console.log(res)
-        
+        console.log("success")
+
         if(res.ok){
             document.location.replace("/")
         } else {
-            alert(res.statusText)
+            alert(res.error)
         }
     }
 }
 
-loginBtn.addEventListener("submit", loginHandler);
+document.querySelector('.login-form').addEventListener("submit", loginHandler);
