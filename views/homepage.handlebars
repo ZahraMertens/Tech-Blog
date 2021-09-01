@@ -1,3 +1,8 @@
+<h3>See all active posts below:</h3>
+{{#if logged_in}}
+{{else}}
+  <p>To see the posts details please Sign up or Login</p>
+{{/if}}
 
 {{#each posts as |post|}}
     

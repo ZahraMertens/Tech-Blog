@@ -1,0 +1,28 @@
+<h2>Welcome {{user.username}}!</h2>
+
+{{#if posts}}
+ <p>You can see your Posts below:</p>
+ <h4>My Posts: </h4>
+{{else}}
+ <p>Create your first post by clicking the button below:</p>
+{{/if}}
+
+{{#each posts as |post|}}
+    
+    <div class="card text-center">
+     <a href="/api/posts/{{post.id}}">
+      <div class="card-body">
+        <h4 class="card-title">{{post.title}}</h4>
+        {{!-- <p>{{post.post_content}}</p> --}}
+      </div>
+      </a>
+      <div class="card-footer text-muted">
+        Created by {{post.user.username}} on {{format_date post.date_created}}
+      </div>
+    </div>
+
+{{/each}}
+
+<a href="/post">
+    <button type="button" id="btn-create-post" class="btn btn-warning">+ New Post</button>
+</a>
