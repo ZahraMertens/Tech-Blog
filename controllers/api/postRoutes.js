@@ -2,8 +2,6 @@ const router = require('express').Router();
 const { Post, User, Comment} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/:id')
-
 
 router.post('/', withAuth, async (req, res) => {
     try {
@@ -13,8 +11,11 @@ router.post('/', withAuth, async (req, res) => {
       });
   
       res.status(200).json(newPost);
+
     } catch (err) {
+
       res.status(400).json(err);
+
     }
 });
   
