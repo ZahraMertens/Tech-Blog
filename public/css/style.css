@@ -1,3 +1,7 @@
+#navbar {
+    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%)!important;
+}
+
 li {
     list-style: none!important;
 }
@@ -37,7 +41,89 @@ a {
     margin-bottom: 30px;
 }
 
+.login-form,
+.signup-form {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .login-p-el {
     font-size: 15px;
     color: blue;
+}
+
+.homepage-p-el{
+    font-size: 18px;
+}
+
+#comment-btn {
+    background-color: rgb(0, 167, 75);
+    border: green
+}
+
+#comment-card-post {
+    margin-bottom: 50px;
+}
+
+#comment-post-card-header,
+#post-header  {
+    font-size: 20px;
+    background-color: rgb(255, 251, 210)!important;
+}
+
+#comment-card-post-content,
+#post-content {
+   background-color: rgb(243, 243, 243); 
+}
+
+#header-comment-section {
+    font-size: 30px;
+    width: 850px;
+    margin-left:auto;
+    margin-right: auto;
+}
+.comment-container {
+    width: 850px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.comment-body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.comment-p {
+    font-size: 19px!important;
+}
+
+.comment-footer {
+    font-size: 15px;
+}
+
+.comment-form {
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.updatePost-label{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.update-post-header {
+  background-color: honeydew;
+}
+
+.post-form {
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.home-post-container{
+    background-color: rgb(236, 236, 236);
+}
+
+.home-footer {
+    background: linear-gradient(110deg, #fffeaf 60%, hsl(44, 100%, 73%) 60%)!important;
 }

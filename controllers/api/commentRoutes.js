@@ -24,13 +24,9 @@ router.get('/:id', withAuth, async (req, res) => {
                 },
 
             ]
-        })
-    
-        if (!postData) {
-            console.log(postData)
-            res.status(200).json({message: 'Create new post'});
-            return
-        }
+        });
+
+        //Needs to be fixed if comments dont exist go anyway 
     
         const post = postData.get({plain: true});
     

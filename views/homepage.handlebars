@@ -1,18 +1,22 @@
 <h3>See all active posts below:</h3>
+<br>
 {{#if logged_in}}
+  <a href="/dashboard">
+    <p class="homepage-p-el">If you like to update, delete or add a new blog post, click here...</p>
+  </a>
 {{else}}
-  <p>To see the posts details please Sign up or Login</p>
+  <p class="homepage-p-el">To see the posts details please Sign up or Login</p>
 {{/if}}
 
 {{#each posts as |post|}}
     
-    <div class="card text-center">
+    <div class="home-posts card text-center">
      <a href="/post/{{post.id}}">
-      <div class="card-body">
+      <div class="home-post-container card-body">
         <h5 class="card-title">{{post.title}}</h5>
       </div>
       </a>
-      <div class="card-footer text-muted">
+      <div class="home-footer card-footer text-muted">
         Created by {{post.user.username}} on {{format_date post.date_created}}
       </div>
     </div>

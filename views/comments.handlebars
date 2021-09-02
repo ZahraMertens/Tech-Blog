@@ -1,29 +1,29 @@
-<div class="card">
-  <h7 class="card-header">Created by {{user.username}} on {{format_date date_created}}</h7>
-  <div class="card-body">
+<div id="comment-card-post" class="card">
+  <h7 id="comment-post-card-header" class="card-header">Created by {{user.username}} on {{format_date date_created}}</h7>
+  <div id="comment-card-post-content" class="card-body">
     <h5 class="card-title">{{title}}</h5>
     <p class="card-text">{{post_content}}</p>
  </div>
 </div>
 
+<h1 id="header-comment-section">All comments: </h1>
 {{#each comments as |comment|}}
-    <div class="card">
-    <div class="card-header">
-        Comment:
+    <div class="comment-container card">
+    <div class="comment-header card-header">
+        Comment by {{comment.user.username}}
     </div>
-    <div class="card-body">
+    <div class="comment-body card-body">
         <blockquote class="blockquote mb-0">
-        <p>{{comment.comment_content}}</p>
-        <footer class="blockquote-footer">{{comment.user.username}}, created on {{format_date comment.date_created}}</footer>
+        <p class="comment-p">{{comment.comment_content}}</p>
+        <footer class="comment-footer blockquote-footer">Created on {{format_date comment.date_created}}</footer>
         </blockquote>
     </div>
     </div>
 {{/each}}
 
-<form class="comment-form" style="max-width: 500px">
+<form class="comment-form" style="max-width: 850px">
   <h4>Leave a comment:</h4>
     <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Content</label>
       <textarea class="form-control" id="content-comment" rows="2"></textarea>
     </div>
     <div class="form-group">
@@ -31,7 +31,5 @@
     </div>
 
 </form>
-
-
 
 <script src="/js/comments.js"></script>
