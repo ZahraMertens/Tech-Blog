@@ -63,8 +63,6 @@ router.put('/:id', withAuth, async (req, res) => {
       return
     }
 
-    res.status(200).json(postData)
-
   } catch (error){
 
   }

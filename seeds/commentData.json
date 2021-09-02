@@ -1,5 +1,8 @@
 [
     {
-        "comment_content": "This is true!"
+        "comment_content": "This is true!",
+        "date_created" : "2021-09-02 18:59:56",
+		"user_id" : 1,
+		"post_id" : 1
     }
 ]

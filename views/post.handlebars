@@ -3,6 +3,8 @@
   <div class="card-body">
     <h5 class="card-title">{{title}}</h5>
     <p class="card-text">{{post_content}}</p>
-    <a href="" class="btn btn-primary">Comments</a>
-  </div>
+    <a href="/api/comments/{{id}}">
+      <button type="button" id="comment-btn" class="btn btn-primary" data-id="{{id}}">Comments</button>
+    </a> 
+ </div>
 </div>

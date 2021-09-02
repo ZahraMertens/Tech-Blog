@@ -36,3 +36,8 @@ a {
 .card {
     margin-bottom: 30px;
 }
+
+.login-p-el {
+    font-size: 15px;
+    color: blue;
+}
