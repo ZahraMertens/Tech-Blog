@@ -1,7 +1,12 @@
 [
     {
-      "username": "Zahra",
-      "email": "zahra.mertens@gmx.net",
+      "username": "freddy12",
+      "email": "fred@gmail.com",
+      "password": "test1234"
+    },
+    {
+      "username": "sarah_juniorDev",
+      "email": "sarah1@hotmail.com",
       "password": "test1234"
     }
 ]

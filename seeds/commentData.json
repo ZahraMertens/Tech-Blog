@@ -1,8 +1,20 @@
 [
     {
-        "comment_content": "This is true!",
+        "comment_content": "Very well explained!",
         "date_created" : "2021-09-02 18:59:56",
-		"user_id" : 1,
+		"user_id" : 2,
 		"post_id" : 1
+    },
+    {
+        "comment_content": "It also allow the users to control a large and complex data set. ",
+        "date_created" : "2021-09-03 18:59:56",
+		"user_id" : 2,
+		"post_id" : 1
+    },
+    {
+        "comment_content": "I totally agree! There are new technologies every day which you need to understand to keep up with the standards...",
+        "date_created" : "2021-09-04 18:59:56",
+		"user_id" : 1,
+		"post_id" : 2
     }
 ]

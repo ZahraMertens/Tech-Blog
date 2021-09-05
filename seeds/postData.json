@@ -1,6 +1,12 @@
 [
     {
-        "title": "Test",
-        "post_content": "More people start to code due to the COVID 19 Pandemic and being stucked at home!"
+        "user_id": 1,
+        "title": "MVC",
+        "post_content": "MVC is a design pattern used to decouple user-interface (view), data (model), and application logic (controller). ... Using the MVC pattern for websites, requests are routed to a Controller that is responsible for working with the Model to perform actions and/or retrieve data."
+    },
+    {
+        "user_id": 2,
+        "title": "Perks of Web Development",
+        "post_content": "The rewarding field of web development comes with many perks, but it’s one of those jobs that require habitual learning and self-improvement. With the sheer amount of programming languages in use, staying ahead in your career can be tough. It’s also a field that’s constantly changing. Whether the industry calls for new standards or an important development tool gets an update, you need to be aware of the changes."
     }
 ]
