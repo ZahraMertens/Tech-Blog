@@ -36,26 +36,38 @@ router.get('/', async (req,res) => {
 router.get('/post/:id', withAuth, async (req, res) => {
 
     try{
+        
         const postData = await Post.findByPk(req.params.id, {
             include: [
                 {
                     model: User,
-                    attributes: ['username']
+                },
+                {
+                    model: Comment,
                 }
             ]
         })
 
-        if (!postData) {
-            res.status(200).json({message: 'Create new post'});
-            return
-        }
+    const post = postData.get({ plain: true });
+    console.log(post)
+    
+    const commentData = await Comment.findAll({
+      include: [{ model: User }],
+      where: {
+        post_id: req.params.id
+      }
+    });
 
-        const post = postData.get({plain: true});
+    const comments = commentData.map((comment) => {
+        return comment.get({ plain: true })
+    });
+    console.log(comments)
 
-        res.render('post', {
-            ...post,
-            logged_in: req.session.logged_in
-        });
+    res.render('post', {
+      ...post,
+      comments,
+      logged_in: req.session.logged_in,
+    });
 
     } catch (error){
         console.log(error)
@@ -64,60 +76,60 @@ router.get('/post/:id', withAuth, async (req, res) => {
 })
 
 
-// router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
 
-//     const userId = req.session.user_id;
-//     console.log(userId)
+    const userId = req.session.user_id;
+    console.log(userId)
 
-//     try {
+    try {
 
-//         const userData = await User.findOne({
-//             where: {
-//                 id: userId,
-//             }
-//         });
+        const userData = await User.findOne({
+            where: {
+                id: userId,
+            }
+        });
 
-//         const user = userData.get({plain: true});
-//         console.log(user)
+        const user = userData.get({plain: true});
+        console.log(user)
 
-//         const postData = await Post.findAll({
-//             include: [
-//                 {
-//                     model: User,
-//                     attributes: ['id', 'username']
-//                 },
-//             ],
-//             attributes: ['id', 'title', 'post_content', 'date_created'],
-//             where: {
-//                 user_id: userId,
-//             }
-//         });
+        const postData = await Post.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'username']
+                },
+            ],
+            attributes: ['id', 'title', 'post_content', 'date_created'],
+            where: {
+                user_id: userId,
+            }
+        });
 
-//         if (!postData) {
-//             res.status(200).json({message: 'errorororor'});
-//             return
-//         }
+        if (!postData) {
+            res.status(200).json({message: 'errorororor'});
+            return
+        }
 
-//         const posts = postData.map((post) => {
-//             return post.get({plain: true})
-//         });
+        const posts = postData.map((post) => {
+            return post.get({plain: true})
+        });
 
-//         console.log(posts)
+        console.log(posts)
 
-//         res.render('dashboard', {
-//             posts,
-//             user,
-//             logged_in: req.session.logged_in
-//         });
+        res.render('dashboard', {
+            posts,
+            user,
+            logged_in: req.session.logged_in
+        });
 
-//     } catch (error) {
+    } catch (error) {
 
-//         res.status(500).json({name: error.name, message: error.message})
-//     }
-// })
+        res.status(500).json({name: error.name, message: error.message})
+    }
+})
 
 router.get('/login', (req, res) => {
-    // If the user is already logged in, redirect the request to another route
+    
     if (req.session.logged_in) {
       res.redirect('/');
       return;
@@ -128,12 +140,14 @@ router.get('/login', (req, res) => {
 
 router.get('/post', withAuth, (req, res) => {
  
-    if (req.session.logged_in) {
-      res.render('createPost');
+    if (!req.session.logged_in) {
+      res.redirect('/'); 
       return;
     }
-
-    res.redirect('/');   
+    
+    res.render('createPost', {
+        logged_in: req.session.logged_in
+    });  
 });
 
 router.get('/signup', (req, res) => {

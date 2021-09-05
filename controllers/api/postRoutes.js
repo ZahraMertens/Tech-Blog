@@ -3,14 +3,18 @@ const { Post, User, Comment} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/create', withAuth, async (req, res) => {
     try {
       const newPost = await Post.create({
         ...req.body,
         user_id: req.session.user_id,
       });
+
+      req.session.save(() => {
+        req.session.logged_in = true;
   
-      res.status(200).json(newPost);
+        res.status(200).json(newPost);
+      });
 
     } catch (err) {
 
@@ -59,12 +63,14 @@ router.put('/:id', withAuth, async (req, res) => {
     })
 
     if (!postData) {
-      res.status(200).json({message: 'Create new post'});
+      res.status(404).json({message: 'The post data is invalid'});
       return
     }
 
-  } catch (error){
+    res.status(200).json(postData)
 
+  } catch (error){
+    res.status(500).json({name: error.name, message: error.message})
   }
 })
   
@@ -83,6 +89,7 @@ router.delete('/:id', withAuth, async (req, res) => {
       }
   
       res.status(200).json(postData);
+
     } catch (err) {
       res.status(500).json(err);
     }

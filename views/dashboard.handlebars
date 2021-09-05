@@ -22,6 +22,9 @@
 
 {{/each}}
 
-<a href="/post">
-    <button type="button" id="btn-create-post" class="btn btn-warning">+ New Post</button>
-</a>
+{{#if logged_in}}
+  <a href="/post">
+      <button type="button" id="btn-create-post" class="btn btn-warning">+ New Post</button>
+  </a>
+{{/if}}
+

@@ -11,7 +11,7 @@ const addCommentHandler = async (event) =>{
         console.log(post_id)
 
         if (post_id && comment_content) {
-        const res = await fetch('/api/comments', {
+        const res = await fetch('/api/comments/create', {
             method: 'POST',
             body: JSON.stringify({ post_id, comment_content }),
             headers: { 'Content-Type': 'application/json' },
@@ -19,7 +19,7 @@ const addCommentHandler = async (event) =>{
     
             if (res.ok) {
                 console.log("ok")
-                document.location.replace(`/api/comments/${post_id}`);
+                document.location.reload()
             } else {
                 alert(response.statusText);
             }

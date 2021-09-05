@@ -18,7 +18,6 @@ const updatePostHandler = async (event) => {
             });
 
             if(res.ok){
-                //alert("Your blog post has successfuly been updated!")
                 document.location.replace(`/dashboard`)
             } else {
                 alert(res.error)
@@ -43,7 +42,6 @@ const deletePostHandler = async (event) => {
         console.log("success")
     
         if(res.ok){
-            //alert("Your blog post has successfuly been deleted!")
             document.location.replace("/dashboard")
         } else {
             alert(res.error)

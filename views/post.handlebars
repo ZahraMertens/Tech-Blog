@@ -3,8 +3,35 @@
   <div id="post-content" class="card-body">
     <h5 class="card-title">{{title}}</h5>
     <p class="card-text">{{post_content}}</p>
-    <a href="/api/comments/{{id}}">
+    {{!-- <a href="/api/comments/{{id}}">
       <button type="button" id="comment-btn" class="btn btn-primary" data-id="{{id}}">Comments</button>
-    </a> 
+    </a>  --}}
  </div>
 </div>
+<br>
+{{#if comments.length}}
+<div>
+  <h1 id="header-comment-section">All comments: </h1>
+  <div>
+    {{#each comments as |comment|}}
+      {{>comment-post}}
+    {{/each}}
+  </div>
+</div>
+{{/if}}
+
+{{#if logged_in}}
+  <form class="comment-form" style="max-width: 850px">
+  <h4>Leave a comment:</h4>
+    <div class="mb-3">
+      <textarea class="form-control" id="content-comment" rows="2"></textarea>
+    </div>
+    <div class="form-group">
+        <button type="button" id="add-comment-btn" class="btn-add-comment btn btn-warning" data-id="{{id}}">+ Add Comment</button>
+    </div>
+
+</form>
+
+{{/if}}
+
+<script src="/js/comments.js"></script>
