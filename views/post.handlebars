@@ -9,6 +9,7 @@
  </div>
 </div>
 <br>
+{{#if logged_in}}
 {{#if comments.length}}
 <div>
   <h1 id="header-comment-section">All comments: </h1>
@@ -19,8 +20,6 @@
   </div>
 </div>
 {{/if}}
-
-{{#if logged_in}}
   <form class="comment-form" style="max-width: 850px">
   <h4>Leave a comment:</h4>
     <div class="mb-3">
@@ -31,7 +30,10 @@
     </div>
 
 </form>
-
+{{else}}
+  <a href="/login">
+    <h4>Please login to see all comments. Click here...</h4>
+  </a>
 {{/if}}
 
 <script src="/js/comments.js"></script>
