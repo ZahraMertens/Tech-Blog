@@ -7,7 +7,7 @@
 
 * [GitHub repository of Tech Blog Full Stack Web Application](https://github.com/ZahraMertens/Tech-Blog.git)
 
-* [Deployed Application in Heroku]()
+* [Deployed Application in Heroku](https://serene-escarpment-55797.herokuapp.com/)
 
 
 ## Table of Contents
