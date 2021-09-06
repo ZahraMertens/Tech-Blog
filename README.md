@@ -27,7 +27,7 @@ The application "Tech Blog" is a full stack web application which displays users
 
 ## Installation Instructions
 
-* 1️⃣ First the user must clone the [GitHub Repo](https://github.com/ZahraMertens/E-commerce-backend.git) on its computer.
+* 1️⃣ First the user must clone the [GitHub Repo](https://github.com/ZahraMertens/Tech-Blog.git) on its computer.
 
 * 2️⃣ Open the repository on your device with VS Code (or any other program)
 
