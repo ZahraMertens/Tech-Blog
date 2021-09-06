@@ -127,3 +127,21 @@ a {
 .home-footer {
     background: linear-gradient(110deg, #fffeaf 60%, hsl(44, 100%, 73%) 60%)!important;
 }
+
+@media screen and (max-width: 1435px){
+    .login-container {
+        display: block;
+        margin: 0px!important;
+    }
+    
+    .logout-container {
+        display: block;
+        margin: 0px!important;
+    }
+}
+
+@media screen and (max-width: 435px){
+    .navbar-container{
+        display: block!important;
+    }
+}
