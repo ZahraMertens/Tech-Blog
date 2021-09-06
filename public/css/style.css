@@ -139,9 +139,3 @@ a {
         margin: 0px!important;
     }
 }
-
-@media screen and (max-width: 435px){
-    .navbar-container{
-        display: block!important;
-    }
-}

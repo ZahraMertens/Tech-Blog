@@ -16,7 +16,8 @@ const loginHandler = async (event) => {
         if(res.ok){
             document.location.replace("/")
         } else {
-            alert(res.error)
+            alert("OOPS! It looks like your password and email are not correct. Please try again...")
+            document.location.replace('/login')
         }
     }
 }
